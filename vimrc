@@ -1,3 +1,4 @@
+set term=screen-256color
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -20,6 +21,7 @@ Plugin 'snippets.vim'
 Plugin 'davejlong/cf-utils.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -40,7 +42,7 @@ colorscheme desert
 syntax on
 set number
 highlight LineNr ctermbg=233
-highlight LineNr ctermfg=239
+highlight LineNr ctermfg=245
 set tabstop=4
 set shiftwidth=4
 set colorcolumn=110
