@@ -1,0 +1,12 @@
+BoldAsFont=no
+Transparency=high
+Font=DejaVu Sans Mono for Powerline
+FontHeight=11
+FontSmoothing=default
+BoldAsColour=yes
+Term=xterm-256color
+Locale=C
+Charset=UTF-8
+CopyAsRTF=no
+ScrollMod=shift
+Scrollbar=none
