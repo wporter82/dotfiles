@@ -1,8 +1,10 @@
 map <C-n> :NERDTreeToggle<CR>
-no <down> ddp
+no <C-down> ddp
+no <C-up> ddkP
+no <up> <Nop>
+no <down> <Nop>
 no <left> <Nop>
 no <right> <Nop>
-no <up> ddkP
 " insert ISO8601/W3C timestamp
 nnoremap <F5> "=strftime("%FT%T%z")<CR>P
 inoremap <F5> <C-R>=strftime("%FT%T%z")<CR>

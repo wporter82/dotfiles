@@ -2,15 +2,40 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="minttyrc mutt oh-my-zsh tmux.conf todo.cfg vim vimrc zsh-aliases zshrc"
+files="minttyrc mutt tmux.conf todo.cfg vim vimrc zsh-aliases zshrc"
 
 echo "Creating $olddir for backup"
 mkdir -p $olddir
 echo "Done!"
 
+echo "installing oh my zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "installing vim plugins..."
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+echo "installing poweline fonts..."
+git clone https://github.com/powerline/fonts.git
+fonts/install.sh
+
+echo "installing todo.txt..."
+mkdir ~/bin
+cd ~/bin
+wget -q https://raw.githubusercontent.com/ginatrapani/todo.txt-cli/master/todo.sh
+chmod +x todo.sh
+cd ~/
+echo "Symlinking todo.txt to Dropbox dir"
+ln -s ~/Dropbox/.todo .todo
+mkdir ~/.todo.actions.d
+cd ~/.todo.actions.d
+wget -q http://github.com/the1ts/todo.txt-plugins/raw/master/actions/projectview/projectview
+chmod +x projectview
+cd ~/
+
 cd $dir
 for file in $files; do
-	echo "Moving any existing dotfiles from ~ to $olddir"
+	echo "Moving any existing dotfiles from ~/.$file to $olddir"
 	mv ~/.$file $olddir/
 	echo "Creating symlink to $file in home dir"
 	ln -s $dir/$file ~/.$file
