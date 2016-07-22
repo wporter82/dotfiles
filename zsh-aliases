@@ -1,1 +1,2 @@
 alias t="~/bin/todo.sh -d ~/.todo.cfg"
+alias hexdump="hexdump -C"

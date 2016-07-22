@@ -23,6 +23,19 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" Snipmate
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+
+" UltiSnip
+Plugin 'SirVer/ultisnips'
+
+" Snippets
+Plugin 'honza/vim-snippets'
+Plugin 'chrisgillis/vim-bootstrap3-snippets'
+Plugin 'MWers/vim-coldfusion-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,6 +73,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" SnipMate CF support
+" let g:snipMate=get(g:, 'snipMate', {}) "Allow vimrc re-sourcing
+" let g:snipMate.scope_aliases={}
+" let g:snipMate.scope_aliases['cfml'] = 'cfml,html'
+
+" UltiSnips Trigger configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Set airline to be on for all windows
 set laststatus=2
