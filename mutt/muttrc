@@ -9,8 +9,21 @@ set certificate_file="~/.mutt/certificates"
 set move=no
 set imap_keepalive=900
 
-source ~/.mutt/userinfo.muttrc
+set fast_reply=yes
+set include=yes
 
+set sort=threads
+set sort_aux=last-date-received
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+# bind attach <return> view-mailcap
+macro index,pager \cb ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
+set mailcap_path="~/.mutt/mailcap"
+
+source ~/.gpg.rc
+source ~/.mutt/crypto
+source ~/.mutt/userinfo.muttrc
 source ~/.mutt/colors.muttrc
 
 bind index G imap-fetch-mail
