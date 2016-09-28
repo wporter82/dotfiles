@@ -1,5 +1,25 @@
 #!/bin/bash
 
+if [[ "$OSTYPE" == "cygwin" ]]; then
+	echo "installing apt-cyg..."
+	if [ ! -d "~/bin" ]; then
+	  mkdir ~/bin
+	fi
+	cd ~/bin
+	wget -q https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
+	chmod +x apt-cyg
+	export PATH=~/bin:$PATH
+	cd ~/
+fi
+
+echo "installing packages..."
+if [[ "$OSTYPE" == "cygwin" ]]; then
+	apt-cyg install curl git vim zsh mutt tmux
+else
+	sudo apt-get install curl git vim zsh mutt tmux
+fi
+
+echo "backing up old dotfiles..."
 dir=~/dotfiles
 olddir=~/dotfiles_old
 files="minttyrc mutt tmux.conf todo.cfg vim vimrc zsh-aliases zshrc"
@@ -11,13 +31,20 @@ echo "Done!"
 echo "installing oh my zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "installing vim plugins..."
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-
 echo "installing poweline fonts..."
 git clone https://github.com/powerline/fonts.git
-fonts/install.sh
+if [[ "$OSTYPE" == "cygwin" ]]; then
+	# run powershell install
+	if [[ "$(powershell Get-ExecutionPolicy)" == "RemoteSigned" ]]; then
+		powershell -File fonts/install.ps1
+	else
+		echo "Can't install fonts. Need to run the following command in Powershell:"
+		echo "Set-ExecutionPolicy RemoteSigned"
+		echo "Then run the install.ps1 script in fonts folder."
+	fi
+else
+	fonts/install.sh
+fi
 
 echo "installing todo.txt..."
 mkdir ~/bin
@@ -40,3 +67,8 @@ for file in $files; do
 	echo "Creating symlink to $file in home dir"
 	ln -s $dir/$file ~/.$file
 done
+
+# Needs to be done after .vim has been symlinked
+echo "installing vim plugins..."
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
