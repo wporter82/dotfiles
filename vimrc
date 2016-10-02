@@ -56,9 +56,11 @@ syntax on
 set number
 highlight LineNr ctermbg=233
 highlight LineNr ctermfg=245
-set tabstop=4
-set shiftwidth=4
-set colorcolumn=110
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
+set colorcolumn=80
 highlight ColorColumn ctermbg=8
 
 " Use OS clipboard for copy/paste
