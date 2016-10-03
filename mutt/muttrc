@@ -25,5 +25,6 @@ source ~/.gpg.rc
 source ~/.mutt/crypto
 source ~/.mutt/userinfo.muttrc
 source ~/.mutt/colors.muttrc
+source ~/.mutt/subscriptions.muttrc
 
 bind index G imap-fetch-mail
