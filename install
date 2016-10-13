@@ -3,7 +3,7 @@
 if [[ "$OSTYPE" == "cygwin" ]]; then
 	echo "installing apt-cyg..."
 	if [ ! -d "~/bin" ]; then
-	  mkdir ~/bin
+		mkdir ~/bin
 	fi
 	cd ~/bin
 	wget -q https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
@@ -67,6 +67,11 @@ for file in $files; do
 	echo "Creating symlink to $file in home dir"
 	ln -s $dir/$file ~/.$file
 done
+
+echo "Setting up mutt..."
+cp /usr/share/doc/mutt/examples/gpg.rc ~/.gpg.rc
+ln -s ~/Dropbox/userinfo.muttrc ~/.mutt/userinfo.muttrc
+touch ~/.mutt/subscriptions.muttrc
 
 # Needs to be done after .vim has been symlinked
 echo "installing vim plugins..."
