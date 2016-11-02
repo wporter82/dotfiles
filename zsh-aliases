@@ -2,3 +2,10 @@ alias t="~/bin/todo.sh -d ~/.todo.cfg"
 alias hexdump="hexdump -C"
 alias glop="git log --format='%C(yellow)%h %C(blue)%ad %C(green)%an%x09%C(white)%s' --date=short"
 alias tmux="tmux -2"
+alias ls='ls -hF --color=auto'
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -l --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias hexdump='hexdump -C'
