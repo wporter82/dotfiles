@@ -16,7 +16,7 @@ echo "installing packages..."
 if [[ "$OSTYPE" == "cygwin" ]]; then
 	apt-cyg install curl git vim zsh mutt tmux
 else
-	sudo apt-get install curl git vim zsh mutt tmux
+	sudo apt-get install curl git vim vim-gtk zsh mutt tmux
 fi
 
 echo "backing up old dotfiles..."
