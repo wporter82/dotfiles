@@ -64,6 +64,10 @@ set noexpandtab
 set colorcolumn=80
 highlight ColorColumn ctermbg=8
 
+" Use different tab spacing for Web langs
+autocmd Filetype html setlocal ts=4 sts=4 sw=4
+autocmd Filetype cfml setlocal ts=4 sts=4 sw=4
+
 " Use OS clipboard for copy/paste
 set clipboard=unnamed
 
