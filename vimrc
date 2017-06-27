@@ -22,6 +22,7 @@ Plugin 'davejlong/cf-utils.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rodjek/vim-puppet'
 
 " Snipmate
 " Plugin 'MarcWeber/vim-addon-mw-utils'
