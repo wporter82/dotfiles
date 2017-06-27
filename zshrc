@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="intheloop"
 ZSH_TMUX_AUTOSTART=true
 
-plugins=(git colored-man-pages)
+plugins=(git colored-man-pages web-search tmux last-working-dir)
 
 # User configuration
 
