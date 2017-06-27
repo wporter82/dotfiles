@@ -57,16 +57,17 @@ syntax on
 set number
 highlight LineNr ctermbg=233
 highlight LineNr ctermfg=245
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set noexpandtab
 set colorcolumn=80
 highlight ColorColumn ctermbg=8
 
-" Use different tab spacing for Web langs
-autocmd Filetype html setlocal ts=4 sts=4 sw=4
-autocmd Filetype cfml setlocal ts=4 sts=4 sw=4
+" Use different tab spacing for non Web langs
+autocmd Filetype c setlocal ts=8 sts=8 sw=8
+autocmd Filetype cpp setlocal ts=8 sts=8 sw=8
+autocmd Filetype make setlocal ts=8 sts=8 sw=8
 
 " Use OS clipboard for copy/paste
 set clipboard=unnamed
