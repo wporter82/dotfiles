@@ -1,8 +1,8 @@
 set ssl_starttls=yes
 set ssl_force_tls=yes
 set folder="imaps://imap.gmail.com/"
-set spoolfile="imaps://imap.gmail.com/INBOX"
-set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set spoolfile="+INBOX"
+set postponed="+[Gmail]/Drafts"
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
 set certificate_file="~/.mutt/certificates"
@@ -11,6 +11,16 @@ set imap_keepalive=900
 
 set fast_reply=yes
 set include=yes
+
+# Sidebar options
+set sidebar_width=18
+set sidebar_visible=yes
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
 
 set sort=threads
 set sort_aux=last-date-received
@@ -28,3 +38,4 @@ source ~/.mutt/colors.muttrc
 source ~/.mutt/subscriptions.muttrc
 
 bind index G imap-fetch-mail
+mailboxes +INBOX +Cygwin +Procps +Kernel +Kernel\ Newbies
