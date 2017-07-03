@@ -23,6 +23,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rodjek/vim-puppet'
+Plugin 'stevearc/vim-arduino'
 
 " Snipmate
 " Plugin 'MarcWeber/vim-addon-mw-utils'

@@ -12,16 +12,6 @@ set imap_keepalive=900
 set fast_reply=yes
 set include=yes
 
-# Sidebar options
-set sidebar_width=18
-set sidebar_visible=yes
-bind index \CP sidebar-prev
-bind index \CN sidebar-next
-bind index \CO sidebar-open
-bind pager \CP sidebar-prev
-bind pager \CN sidebar-next
-bind pager \CO sidebar-open
-
 set sort=threads
 set sort_aux=last-date-received
 
@@ -31,6 +21,16 @@ alternative_order text/plain text/enriched text/html
 macro index,pager \cb ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
 set mailcap_path="~/.mutt/mailcap"
 
+set sidebar_visible = yes
+set sidebar_short_path = yes
+set sidebar_width = 30
+set sidebar_new_mail_only = no
+set sidebar_delim_chars = '.'
+set sidebar_divider_char = '|'
+set mail_check_stats
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
+set sidebar_sort_method = 'unsorted'
+
 source ~/.gpg.rc
 source ~/.mutt/crypto
 source ~/.mutt/userinfo.muttrc
@@ -39,3 +39,9 @@ source ~/.mutt/subscriptions.muttrc
 
 bind index G imap-fetch-mail
 mailboxes +INBOX +Cygwin +Procps +Kernel +Kernel\ Newbies
+# Move the highlight to the previous mailbox
+bind index,pager \Cp sidebar-prev
+# Move the highlight to the next mailbox
+bind index,pager \Cn sidebar-next
+# Open the highlighted mailbox
+bind index,pager \Co sidebar-open
