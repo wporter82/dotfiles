@@ -72,6 +72,7 @@ autocmd Filetype make setlocal ts=8 sts=8 sw=8
 
 " Use OS clipboard for copy/paste
 set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Syntastic settings
 source ~/.vim/syntastic.vimrc
