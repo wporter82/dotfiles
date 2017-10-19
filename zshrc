@@ -1,4 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
+export TERM="screen-256color"
 
 ZSH_THEME="intheloop"
 ZSH_TMUX_AUTOSTART=true
